@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow" data-publish>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Смена – работа рядом с домом</title>
+<meta name="description" content="Вакансии рядом с домом: отклик за минуту, без резюме. Работодателям – подбор людей на смены и постоянную работу.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2314231f'/%3E%3Cpath d='M9 20c2 2 4 3 7 3 4 0 7-2 7-5s-3-4-7-5-6-2-6-4 2-3 5-3c2 0 4 1 5 2' stroke='%23ff6a3d' stroke-width='3' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f2f1ec; --paper-2:#e8e6de; --card:#fbfaf7;
+  --ink:#14231f; --ink-2:#4a5752; --line:#d6d3c8;
+  --accent:#ff6a3d; --accent-ink:#1a0d07; --deep:#14231f; --deep-ink:#eef0ea; --mint:#bfe3cf;
+  --r:14px; --w:1180px;
+  --f-head:"Unbounded", system-ui, sans-serif; --f-body:"Golos Text", system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.55 var(--f-body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--f-head);font-weight:700;letter-spacing:-.02em;line-height:1.08}
+h2{font-size:clamp(28px,4vw,46px)}
+.eyebrow{font:600 13px/1 var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;border:0;background:var(--accent);color:var(--accent-ink);font:600 16px/1 var(--f-body);text-decoration:none;cursor:pointer;transition:transform .2s, box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -10px var(--accent)}
+.btn:focus-visible,.chip:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.btn--ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
+.btn--ghost:hover{box-shadow:inset 0 0 0 1.5px var(--ink),0 10px 24px -14px var(--ink)}
+section{padding:96px 0}
+
+/* шапка */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;font:700 20px/1 var(--f-head);text-decoration:none}
+.logo i{width:30px;height:30px;border-radius:8px;background:var(--ink);position:relative}
+.logo i::after{content:"";position:absolute;inset:9px 7px;border-radius:50%;border:3px solid var(--accent);border-right-color:transparent}
+.nav{display:flex;gap:28px;font-weight:500;font-size:15px}
+.nav a{text-decoration:none;color:var(--ink-2);transition:color .2s}
+.nav a:hover{color:var(--ink)}
+.top .btn{padding:11px 18px;font-size:15px}
+
+/* hero */
+.hero{padding:44px 0 88px}
+.demo-for{display:inline-flex;align-items:center;gap:10px;padding:6px 14px 6px 6px;border-radius:999px;background:var(--card);border:1px solid var(--line);font-size:14px;color:var(--ink-2);margin-bottom:34px}
+.demo-for img{width:28px;height:28px;border-radius:50%}
+.demo-for b{color:var(--ink);font-weight:600}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(34px,4.6vw,60px);margin:18px 0 22px}
+.demo-for img{flex:none}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.lead{font-size:clamp(17px,1.6vw,20px);color:var(--ink-2);max-width:34em}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero-note{margin-top:22px;font-size:14px;color:var(--ink-2);display:flex;gap:18px;flex-wrap:wrap}
+.hero-note span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#2f9e6a;margin-right:8px;vertical-align:1px}
+
+/* «телефон» с откликом */
+.phone{position:relative;background:var(--deep);color:var(--deep-ink);border-radius:30px;padding:22px;box-shadow:0 40px 80px -40px rgba(20,35,31,.55);transform:rotate(1.5deg)}
+.phone-h{display:flex;justify-content:space-between;align-items:center;font-size:13px;opacity:.7;margin-bottom:16px}
+.job-mini{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:16px;margin-bottom:10px;transition:background .3s, transform .3s}
+.job-mini.on{background:var(--card);color:var(--ink);transform:translateX(-14px)}
+.job-mini h3{font:600 16px/1.3 var(--f-body)}
+.job-mini p{font-size:14px;opacity:.75;margin-top:4px}
+.job-mini .pay{font:700 15px/1 var(--f-head);margin-top:12px;display:flex;justify-content:space-between;align-items:center}
+.job-mini .go{font:600 13px/1 var(--f-body);padding:8px 12px;border-radius:999px;background:var(--accent);color:var(--accent-ink)}
+.toast{position:absolute;left:-28px;bottom:-22px;background:var(--mint);color:var(--ink);border-radius:14px;padding:12px 16px;font-size:14px;font-weight:600;box-shadow:0 16px 30px -18px rgba(0,0,0,.5);transform:rotate(-2deg);opacity:0;translate:0 10px;transition:opacity .4s, translate .4s}
+.toast.show{opacity:1;translate:0 0}
+
+/* полоса */
+.strip{background:var(--deep);color:var(--deep-ink);padding:22px 0;overflow:hidden}
+.strip-track{display:flex;gap:44px;white-space:nowrap;font:500 18px/1 var(--f-head);animation:run 38s linear infinite;width:max-content}
+.strip-track span{display:inline-flex;align-items:center;gap:44px}
+.strip-track span::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent)}
+@keyframes run{to{transform:translateX(-50%)}}
+
+/* вакансии */
+.vac-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:30px}
+.vac-head p{color:var(--ink-2);max-width:30em}
+.tools{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px}
+.search{flex:1 1 280px;display:flex;align-items:center;gap:10px;background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:0 18px;transition:border-color .2s}
+.search:focus-within{border-color:var(--ink)}
+.search input{flex:1;border:0;background:transparent;font:inherit;padding:14px 0;outline:none;color:var(--ink);min-width:0}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.chip{border:1.5px solid var(--line);background:transparent;border-radius:999px;padding:9px 16px;font:500 15px/1 var(--f-body);color:var(--ink);cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.chip:hover{border-color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.list{border-top:1.5px solid var(--ink)}
+.row{display:grid;grid-template-columns:1.6fr 1fr .9fr auto;gap:20px;align-items:center;padding:22px 4px;border-bottom:1px solid var(--line);transition:background .2s,padding .2s}
+.row:hover{background:var(--card);padding-left:16px;padding-right:16px}
+.row h3{font:600 19px/1.3 var(--f-body)}
+.row .co{font-size:14px;color:var(--ink-2);margin-top:3px}
+.tag{display:inline-block;font-size:13px;padding:4px 10px;border-radius:999px;background:var(--paper-2);margin:0 6px 4px 0}
+.tag--hot{background:var(--mint)}
+.row .sal{font:700 18px/1.2 var(--f-head)}
+.row .sal small{display:block;font:400 13px/1.3 var(--f-body);color:var(--ink-2);margin-top:4px}
+.row a{font-weight:600;text-decoration:none;white-space:nowrap;border-bottom:2px solid var(--accent);padding-bottom:2px}
+.empty{padding:40px 4px;color:var(--ink-2);display:none}
+.demo-tag{font-size:13px;color:var(--ink-2);margin-top:16px}
+
+/* как это работает */
+.how{background:var(--paper-2)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:50px;counter-reset:s}
+.step{padding:0 34px 0 0;position:relative}
+.step + .step{padding-left:34px;border-left:1px solid var(--line)}
+.step b{font:700 64px/1 var(--f-head);color:var(--accent);display:block;margin-bottom:22px}
+.step h3{font:600 22px/1.25 var(--f-body);margin-bottom:10px}
+.step p{color:var(--ink-2)}
+
+/* работодателям */
+.emp{background:var(--deep);color:var(--deep-ink)}
+.emp-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+.emp .eyebrow{color:var(--mint)}
+.emp h2{margin:16px 0 22px}
+.emp ul{list-style:none;padding:0;margin-top:30px;display:grid;gap:18px}
+.emp li{display:grid;grid-template-columns:28px 1fr;gap:12px;opacity:.9}
+.emp li::before{content:"";width:22px;height:22px;border-radius:50%;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12l4 4 8-8' stroke='%231a0d07' stroke-width='3' fill='none'/%3E%3C/svg%3E") center/14px no-repeat;margin-top:2px}
+.form{background:var(--card);color:var(--ink);border-radius:22px;padding:32px}
+.form h3{font-size:22px;margin-bottom:6px}
+.form > p{color:var(--ink-2);font-size:15px;margin-bottom:22px}
+.field{display:grid;gap:6px;margin-bottom:14px}
+.field label{font-size:14px;font-weight:600}
+.field input,.field select{font:inherit;padding:13px 14px;border-radius:10px;border:1.5px solid var(--line);background:#fff;color:var(--ink);transition:border-color .2s}
+.field input:focus,.field select:focus{border-color:var(--ink);outline:none}
+.field.bad input{border-color:#c2361a}
+.field .err{font-size:13px;color:#c2361a;display:none}
+.field.bad .err{display:block}
+.form .btn{width:100%;justify-content:center;margin-top:8px}
+.form .ok{display:none;text-align:center;padding:30px 0}
+.form.sent .ok{display:block}
+.form.sent form{display:none}
+.ok b{display:block;font:700 22px/1.2 var(--f-head);margin-bottom:8px}
+.small{font-size:13px;color:var(--ink-2);margin-top:12px}
+
+/* статьи */
+.arts{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;margin-top:44px}
+.art{display:block;text-decoration:none;border-radius:var(--r);background:var(--card);border:1px solid var(--line);padding:28px;transition:transform .25s,border-color .25s}
+.art:hover{transform:translateY(-4px);border-color:var(--ink)}
+.art--big{grid-row:span 2;background:var(--accent);border-color:var(--accent);color:var(--accent-ink);display:flex;flex-direction:column;justify-content:space-between;min-height:360px}
+.art--big h3{font-size:clamp(24px,2.6vw,34px)}
+.art h3{font:600 20px/1.3 var(--f-body)}
+.art--big h3{font-family:var(--f-head);font-weight:700}
+.art .meta{font-size:13px;opacity:.75;margin-bottom:12px}
+.art p{margin-top:12px;opacity:.85}
+
+/* вопросы */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px}
+details{border-bottom:1px solid var(--line)}
+details:first-child{border-top:1.5px solid var(--ink)}
+summary{list-style:none;cursor:pointer;padding:22px 40px 22px 0;font:600 19px/1.35 var(--f-body);position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:6px;top:50%;width:14px;height:14px;margin-top:-9px;border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);transform:rotate(45deg);transition:transform .25s}
+details[open] summary::after{transform:rotate(-135deg);margin-top:-3px}
+details p{padding:0 40px 22px 0;color:var(--ink-2)}
+
+/* финал */
+.final{padding:0 0 96px}
+.final-box{border-radius:28px;background:var(--ink);color:var(--deep-ink);padding:64px;display:grid;grid-template-columns:1.4fr auto;gap:32px;align-items:center;position:relative;overflow:hidden}
+.final-box::after{content:"";position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;border:44px solid var(--accent);opacity:.9}
+.final-box > *{position:relative;z-index:1}
+.final h2{font-size:clamp(28px,3.6vw,44px)}
+.final p{opacity:.75;margin-top:14px}
+footer{border-top:1px solid var(--line);padding:30px 0;font-size:14px;color:var(--ink-2)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* появление */
+.rise{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease}
+.rise.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){.strip-track{animation:none}.rise{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+@media (max-width:960px){
+  .nav{display:none}
+  .hero-grid,.emp-grid,.faq-grid{grid-template-columns:1fr;gap:44px}
+  .phone{max-width:420px;transform:none;margin:0 auto}
+  .toast{left:12px}
+  .row{grid-template-columns:1fr auto;gap:10px 16px}
+  .row .tags{grid-column:1/-1;order:3}
+  .row .sal{text-align:right}
+  .row a{grid-column:1/-1;order:4;justify-self:start}
+  .steps{grid-template-columns:1fr;gap:34px}
+  .step,.step + .step{padding:0;border:0}
+  .step + .step{padding-top:34px;border-top:1px solid var(--line)}
+  .arts{grid-template-columns:1fr}
+  .art--big{grid-row:auto;min-height:260px}
+  .final-box{grid-template-columns:1fr;padding:44px 28px}
+  .final-box::after{width:150px;height:150px;border-width:26px;right:-70px;top:-70px}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  section{padding:72px 0}
+  .hero{padding:28px 0 72px}
+  .top .btn{display:none}
+  .demo-for{font-size:13px;line-height:1.35;margin-bottom:24px;border-radius:18px;padding:8px 14px 8px 8px}
+  .hero-note{gap:8px 18px}
+  .hero-cta .btn{flex:1 1 100%;justify-content:center}
+  .step b{font-size:48px}
+  .form{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#"><i></i>Смена</a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#vacancies">Вакансии</a>
+      <a href="#how">Как это работает</a>
+      <a href="#employers">Работодателям</a>
+      <a href="#articles">Статьи</a>
+    </nav>
+    <a class="btn" href="#vacancies">Найти работу</a>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div class="demo-for"><img src="assets/zakazchik.jpg" alt="" width="28" height="28"><span>Демо для <b>Александра</b> · по заказу «Правки на лендинге (код) или создание нового с ИИ»</span></div>
+    <div class="hero-grid">
+      <div>
+        <p class="eyebrow">Работа в вашем городе</p>
+        <h1>Работа рядом с домом – <em>отклик за минуту</em></h1>
+        <p class="lead">Вакансии без лишних шагов: выбираете смену, оставляете телефон, работодатель перезванивает сам. Резюме не нужно.</p>
+        <div class="hero-cta">
+          <a class="btn" href="#vacancies">Смотреть вакансии</a>
+          <a class="btn btn--ghost" href="#employers">Мне нужны сотрудники</a>
+        </div>
+        <p class="hero-note"><span>Без регистрации</span><span>Прямой контакт с работодателем</span></p>
+      </div>
+      <div class="phone" aria-hidden="true">
+        <div class="phone-h"><span>Вакансии рядом</span><span>сегодня</span></div>
+        <div class="job-mini"><h3>Администратор гостиницы</h3><p>Сменный график 2/2</p><div class="pay">от 48 000 ₽<span class="go">Откликнуться</span></div></div>
+        <div class="job-mini"><h3>Бариста</h3><p>Кофейня в центре, обучение</p><div class="pay">от 42 000 ₽<span class="go">Откликнуться</span></div></div>
+        <div class="job-mini"><h3>Кладовщик</h3><p>Склад, официальное оформление</p><div class="pay">от 55 000 ₽<span class="go">Откликнуться</span></div></div>
+        <div class="toast">Отклик отправлен – ждите звонка</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip" aria-hidden="true">
+  <div class="strip-track">
+    <span>Гостиницы и отели</span><span>Кафе и рестораны</span><span>Склады</span><span>Магазины</span><span>Офис</span><span>Подработка</span>
+    <span>Гостиницы и отели</span><span>Кафе и рестораны</span><span>Склады</span><span>Магазины</span><span>Офис</span><span>Подработка</span>
+  </div>
+</div>
+
+<section id="vacancies">
+  <div class="wrap">
+    <div class="vac-head rise">
+      <div><p class="eyebrow">Вакансии</p><h2>Выберите смену под себя</h2></div>
+      <p>Фильтр и поиск работают прямо на странице – без перезагрузки и тяжёлых библиотек.</p>
+    </div>
+    <div class="tools rise">
+      <label class="search"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><input id="q" type="search" placeholder="Должность или компания" aria-label="Поиск по вакансиям"></label>
+    </div>
+    <div class="chips rise" role="group" aria-label="Сфера">
+      <button class="chip" type="button" data-cat="all" aria-pressed="true">Все</button>
+      <button class="chip" type="button" data-cat="hotel" aria-pressed="false">Гостиницы</button>
+      <button class="chip" type="button" data-cat="food" aria-pressed="false">Кафе</button>
+      <button class="chip" type="button" data-cat="sklad" aria-pressed="false">Склад</button>
+      <button class="chip" type="button" data-cat="office" aria-pressed="false">Офис</button>
+      <button class="chip" type="button" data-cat="part" aria-pressed="false">Подработка</button>
+    </div>
+    <div class="list" id="list"></div>
+    <p class="empty" id="empty">Ничего не нашлось. Попробуйте другое слово или сбросьте фильтр.</p>
+    <p class="demo-tag">Вакансии и зарплаты в демо – примеры. В рабочей версии список подгружается из вашей таблицы или базы.</p>
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="rise"><p class="eyebrow">Как это работает</p><h2>Три шага до первой смены</h2></div>
+    <div class="steps">
+      <div class="step rise"><b>01</b><h3>Выбираете вакансию</h3><p>Фильтр по сфере и графику. Зарплата и адрес видны сразу, без «обсуждается при встрече».</p></div>
+      <div class="step rise"><b>02</b><h3>Оставляете телефон</h3><p>Имя и номер – всё. Ни резюме, ни регистрации, ни пароля.</p></div>
+      <div class="step rise"><b>03</b><h3>Вам перезванивают</h3><p>Работодатель получает отклик и связывается напрямую, чтобы договориться о выходе.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="emp" id="employers">
+  <div class="wrap emp-grid">
+    <div class="rise">
+      <p class="eyebrow">Работодателям</p>
+      <h2>Нужны люди на смены или в штат?</h2>
+      <p>Оставьте заявку – вакансия появится на сайте, отклики будут приходить вам в мессенджер или на почту.</p>
+      <ul>
+        <li>Размещение без сложных форм и личных кабинетов</li>
+        <li>Отклики сразу с номером телефона кандидата</li>
+        <li>Подходит для гостиниц, кафе, складов, магазинов и офисов</li>
+      </ul>
+    </div>
+    <div class="form rise" id="formBox">
+      <form id="empForm" novalidate>
+        <h3>Заявка на подбор</h3>
+        <p>Перезвоним и уточним детали вакансии.</p>
+        <div class="field"><label for="f-name">Компания или имя</label><input id="f-name" name="name" autocomplete="organization" required><span class="err">Напишите, как к вам обращаться</span></div>
+        <div class="field"><label for="f-phone">Телефон</label><input id="f-phone" name="phone" type="tel" inputmode="tel" placeholder="+7 ___ ___-__-__" autocomplete="tel" required><span class="err">Нужен номер из 11 цифр</span></div>
+        <div class="field"><label for="f-kind">Кого ищете</label>
+          <select id="f-kind" name="kind"><option>Сотрудники в штат</option><option>Люди на смены</option><option>Сезонная работа</option></select>
+        </div>
+        <button class="btn" type="submit">Отправить заявку</button>
+        <p class="small">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных.</p>
+      </form>
+      <div class="ok" role="status"><b>Заявка принята</b>В демо она никуда не уходит. В рабочей версии – придёт вам в Telegram или на почту.</div>
+    </div>
+  </div>
+</section>
+
+<section id="articles">
+  <div class="wrap">
+    <div class="rise"><p class="eyebrow">Статьи</p><h2>Полезное для соискателей</h2></div>
+    <div class="arts">
+      <a class="art art--big rise" href="#articles"><div><p class="meta">Гид · 5 минут</p><h3>Первая смена: что взять с собой и о чём спросить работодателя</h3></div><p>Шаблон статьи: заголовок, подзаголовки, цитаты и таблицы оформляются одним стилем.</p></a>
+      <a class="art rise" href="#articles"><p class="meta">Документы · 3 минуты</p><h3>Трудовой договор или ГПХ: в чём разница для вас</h3></a>
+      <a class="art rise" href="#articles"><p class="meta">Подработка · 4 минуты</p><h3>Как совмещать учёбу и сменную работу</h3></a>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap faq-grid">
+    <div class="rise"><p class="eyebrow">Вопросы</p><h2>Коротко о главном</h2></div>
+    <div class="rise">
+      <details><summary>Нужно ли резюме, чтобы откликнуться?</summary><p>Нет. Достаточно имени и телефона – работодатель перезвонит и задаст вопросы сам.</p></details>
+      <details><summary>Сколько стоит отклик для соискателя?</summary><p>Нисколько. Откликаться на вакансии можно бесплатно и без регистрации.</p></details>
+      <details><summary>Как работодателю разместить вакансию?</summary><p>Оставить заявку в блоке «Работодателям». Мы уточним детали и опубликуем вакансию.</p></details>
+      <details><summary>Куда приходят отклики?</summary><p>Куда удобно работодателю: в Telegram, WhatsApp или на почту.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <div class="final-box rise">
+      <div><h2>Работа ближе, чем кажется</h2><p>Посмотрите вакансии – откликнуться можно прямо сейчас.</p></div>
+      <a class="btn" href="#vacancies">Найти работу</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Смена · демо-страница</span><span>Чистый HTML, CSS и JS · без фреймворков</span></div>
+</footer>
+
+<script>
+(() => {
+  const jobs = [
+    { t:"Администратор гостиницы", co:"Гостиница в центре города", cat:"hotel", tags:["2/2","Официально"], hot:true, sal:"от 48 000 ₽", per:"в месяц" },
+    { t:"Горничная", co:"Мини-отель", cat:"hotel", tags:["Дневные смены","Питание"], sal:"от 38 000 ₽", per:"в месяц" },
+    { t:"Бариста", co:"Кофейня, обучение с нуля", cat:"food", tags:["Гибкий график"], hot:true, sal:"от 42 000 ₽", per:"в месяц" },
+    { t:"Повар горячего цеха", co:"Ресторан при гостинице", cat:"food", tags:["5/2","Официально"], sal:"от 60 000 ₽", per:"в месяц" },
+    { t:"Кладовщик", co:"Распределительный склад", cat:"sklad", tags:["Официально","Развозка"], sal:"от 55 000 ₽", per:"в месяц" },
+    { t:"Комплектовщик на смену", co:"Склад интернет-магазина", cat:"part", tags:["Оплата в день"], hot:true, sal:"2 800 ₽", per:"за смену" },
+    { t:"Менеджер по продажам", co:"Офис, работа с клиентами", cat:"office", tags:["5/2","Бонусы"], sal:"от 50 000 ₽", per:"в месяц" },
+    { t:"Промоутер выходного дня", co:"Торговый центр", cat:"part", tags:["Сб–вс"], sal:"1 600 ₽", per:"за смену" }
+  ];
+  const list = document.getElementById("list"), empty = document.getElementById("empty"), q = document.getElementById("q");
+  let cat = "all";
+  const esc = s => s.replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  function render(){
+    const term = q.value.trim().toLowerCase();
+    const items = jobs.filter(j => (cat === "all" || j.cat === cat) && (!term || (j.t + " " + j.co).toLowerCase().includes(term)));
+    list.innerHTML = items.map(j => `
+      <article class="row">
+        <div><h3>${esc(j.t)}</h3><p class="co">${esc(j.co)}</p></div>
+        <div class="tags">${j.hot ? '<span class="tag tag--hot">Срочно</span>' : ""}${j.tags.map(x => `<span class="tag">${esc(x)}</span>`).join("")}</div>
+        <div class="sal">${esc(j.sal)}<small>${esc(j.per)}</small></div>
+        <a href="#employers" aria-label="Откликнуться: ${esc(j.t)}">Откликнуться</a>
+      </article>`).join("");
+    empty.style.display = items.length ? "none" : "block";
+  }
+  document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => {
+    cat = b.dataset.cat;
+    document.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", x === b));
+    render();
+  }));
+  q.addEventListener("input", render);
+  render();
+
+  // «телефон» в hero: по очереди подсвечивает вакансию и показывает отклик
+  const minis = [...document.querySelectorAll(".job-mini")], toast = document.querySelector(".toast");
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let k = 0;
+  function tick(){
+    minis.forEach((m, i) => m.classList.toggle("on", i === k));
+    toast.classList.remove("show");
+    setTimeout(() => toast.classList.add("show"), 900);
+    k = (k + 1) % minis.length;
+  }
+  tick(); if (!still) setInterval(tick, 3200);
+
+  // форма: проверка без отправки
+  const form = document.getElementById("empForm"), phone = document.getElementById("f-phone");
+  phone.addEventListener("input", () => {
+    let d = phone.value.replace(/\D/g, "").replace(/^8/, "7");
+    if (d && d[0] !== "7") d = "7" + d;
+    d = d.slice(0, 11);
+    const p = [d.slice(1,4), d.slice(4,7), d.slice(7,9), d.slice(9,11)];
+    phone.value = d ? "+7" + (p[0] ? " " + p[0] : "") + (p[1] ? " " + p[1] : "") + (p[2] ? "-" + p[2] : "") + (p[3] ? "-" + p[3] : "") : "";
+  });
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    const nameEl = document.getElementById("f-name");
+    const ok1 = nameEl.value.trim().length > 1, ok2 = phone.value.replace(/\D/g, "").length === 11;
+    nameEl.parentNode.classList.toggle("bad", !ok1);
+    phone.parentNode.classList.toggle("bad", !ok2);
+    if (ok1 && ok2) document.getElementById("formBox").classList.add("sent");
+  });
+
+  // плавное появление блоков
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: .12 });
+  document.querySelectorAll(".rise").forEach(el => io.observe(el));
+})();
+</script>
+</body>
+</html>
